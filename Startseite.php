@@ -19,7 +19,7 @@
 
         .header-container {
             text-align: center;
-			margin-top: 30px;
+            margin-top: 30px;
             margin-bottom: 20px; /* Reduzierter Abstand, um den Header höher zu platzieren */
         }
 
@@ -48,15 +48,6 @@
             margin-top: 10px; /* Geringerer Abstand nach oben für die Login-Container */
         }
 
-        .header-image {
-            width: 100%;
-            height: auto;
-            margin-bottom: -20px;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-            overflow: hidden;
-        }
-
         .form-control {
             border-radius: 30px;
         }
@@ -66,48 +57,30 @@
         }
 
         .text-center {
-            margin-bottom: 1rem;
+            margin-bottom: 0px;
         }
+
     </style>
 </head>
 
 <body>
-    
+
     <div class="header-container">
         <h1 class="header-title">Liquor Shop</h1>
-        <p class="header-subtitle">Exquisite Spirits & Fine Wines</p>
-    </div>
-
-    
-    <div class="header-image">
-        <img src="./shopCSS/bilder/bild.jpg" alt="Liquor Shop" class="img-fluid">
-    </div>
-
-    <div class="login-container">
-        <h3 class="text-center">Admin Login</h3>
-        <form action="check_admin.php" method="post">
-            <div class="form-group">
-                <label for="admin-email">E-Mail</label>
-                <input type="email" name="abn" class="form-control" id="admin-email" placeholder="E-Mail eingeben">
-            </div>
-            <div class="form-group">
-                <label for="admin-password">Passwort</label>
-                <input type="password" name="apw" class="form-control" id="admin-password" placeholder="Passwort eingeben">
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Anmelden</button>
-        </form>
+        <p class="header-subtitle">Bitte loggen Sie sich ein, um fortzufahren</p>
     </div>
 
     <div class="login-container mt-4">
         <h3 class="text-center">Kunden Login</h3>
+        <!-- Formular wird an check_kunde.php gesendet -->
         <form action="check_kunde.php" method="post">
             <div class="form-group">
                 <label for="customer-email">E-Mail</label>
-                <input type="email" name="kbn" class="form-control" id="customer-email" placeholder="E-Mail eingeben">
+                <input type="email" name="kbn" class="form-control" id="customer-email" placeholder="E-Mail eingeben" required>
             </div>
             <div class="form-group">
                 <label for="customer-password">Passwort</label>
-                <input type="password" name="kpw" class="form-control" id="customer-password" placeholder="Passwort eingeben">
+                <input type="password" name="kpw" class="form-control" id="customer-password" placeholder="Passwort eingeben" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Anmelden</button>
         </form>
@@ -120,6 +93,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
