@@ -141,7 +141,7 @@
 
     <!-- Cart-Container -->
     <div class="cart-container">
-        <div class="cart-header">Warenkorb</div>
+        <div class="cart-header">Warenkorb - Übersicht</div>
         <!-- Hier folgen die Warenkorb-Elemente -->
         <div class="cart-item">
             <div>
@@ -155,10 +155,12 @@
         </div>
 
         <!-- Cart Footer mit Gesamtsumme -->
-        <div class="cart-footer">
-            <h4>Gesamtbetrag: €99.99</h4>
-            <button class="btn btn-primary">Zur Kasse</button>
-        </div>
+        <div class="cart-footer"> 
+    <h4>Gesamtbetrag: €99.99</h4>
+    <form action="pay.php" method="GET">
+        <button type="submit" class="btn btn-primary">Zur Kasse</button>
+    </form>
+</div>
     </div>
 
     <!-- Bootstrap JS, Popper.js, and jQuery -->
