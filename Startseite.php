@@ -9,18 +9,32 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            background-color: #1e3c72;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Ändert das Zentrieren des Inhalts, um ihn höher zu platzieren */
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .background-image-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%; /* Bild auf 40% der Breite des Bildschirms setzen */
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1651511806003-30e8a55b5fce?q=80&w=1227&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.8; /* Bild leicht transparent */
+            z-index: -1;
         }
 
         .header-container {
             text-align: center;
             margin-top: 30px;
-            margin-bottom: 20px; /* Reduzierter Abstand, um den Header höher zu platzieren */
+            margin-bottom: 20px;
         }
 
         .header-title {
@@ -39,13 +53,15 @@
         }
 
         .login-container {
-            width: 100%;
+            width: 50%;
             max-width: 500px;
             padding: 2rem;
             border-radius: 15px;
             background: #fff;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            margin-top: 10px; /* Geringerer Abstand nach oben für die Login-Container */
+            margin-top: 10px;
+            position: relative; /* Damit der Container über dem Bild liegt */
+            z-index: 1;
         }
 
         .form-control {
@@ -59,11 +75,12 @@
         .text-center {
             margin-bottom: 0px;
         }
-
     </style>
 </head>
 
 <body>
+
+    <div class="background-image-left"></div> <!-- Füge das Bild links hinzu -->
 
     <div class="header-container">
         <h1 class="header-title">Liquor Shop</h1>
