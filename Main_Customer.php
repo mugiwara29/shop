@@ -12,23 +12,31 @@
             background: linear-gradient(45deg, #1e3c72, #2a5298);
             min-height: 100vh;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            flex: 1;
+            margin-left: 250px; /* Platz für Sidebar */
         }
 
         .sidebar {
             width: 250px;
-            background-color: #fff;
+            background-color: #1e1e2f;
             padding: 20px;
-            border-right: 2px solid #ddd;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             position: fixed;
-            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            color: #fff;
         }
 
         .sidebar h2 {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #333;
             margin-bottom: 20px;
         }
 
@@ -43,35 +51,71 @@
 
         .sidebar ul li a {
             text-decoration: none;
-            color: #1e3c72;
+            color: #ccc;
             font-size: 1rem;
             padding: 8px 16px;
             display: block;
             border-radius: 8px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .sidebar ul li a:hover {
-            background-color: #1e3c72;
+            background-color: #ff9800;
             color: #fff;
+        }
+
+        .top-bar {
+            background-image: url('https://source.unsplash.com/1600x900/?whiskey,bar');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            width: calc(100% - 250px); /* Breite anpassen an Sidebar */
+            margin-left: 250px; /* Gleiche wie Sidebar */
+        }
+
+        .top-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .top-bar h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .top-bar a {
+            background-color: #ff9800;
+            border-color: #ff9800;
+            color: white;
+            border-radius: 30px;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .top-bar a:hover {
+            background-color: #e68900;
+            transform: scale(1.05);
         }
 
         .content {
-            margin-left: 270px;
             padding: 40px;
-            color: #fff;
             flex: 1;
-        }
-
-        .content h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: 1.2rem;
-            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            max-width: calc(100% - 250px); /* Berechnet die Breite ohne Sidebar */
         }
 
         .product-card {
@@ -128,7 +172,7 @@
 </head>
 
 <body>
-    <!-- Sidebar Navigation -->
+    <!-- Sidebarnavigation -->
     <div class="sidebar">
         <h2>Kategorien</h2>
         <ul>
@@ -142,37 +186,46 @@
         </ul>
     </div>
 
-    <!-- Main Content -->
-    <div class="content">
+    <div class="top-bar d-flex justify-content-between align-items-center">
+    <div>
         <h1>Willkommen im Liquor Shop</h1>
-        <p>Entdecken Sie unsere Auswahl an exklusiven Spirituosen und Weinen, die speziell für Sie kuratiert wurden.</p>
-
-        <!-- Beispiel Produktkarten -->
-        <div class="product-card">
-            <div class="product-info">
-                <h3>Whisky - Glenfiddich 18 Jahre</h3>
-                <p>Ein seltener und feiner Single Malt Scotch Whisky, gereift für 18 Jahre in Eichenfässern.</p>
-            </div>
-            <div style="display: flex; align-items: center;">
-    <input type="number" class="form-control quantity-input" value="1" min="1" max="30" step="1">
-    <button class="btn cart-button">In den Warenkorb</button>
+        <h6>Entdecken Sie unsere Auswahl an exklusiven Spirituosen und Weinen, die speziell für Sie kuratiert wurden.</h6>
+    </div>
+    <a href="Basket.php" class="btn">
+        <i class="fas fa-shopping-cart"></i> Warenkorb
+    </a>
 </div>
 
-        </div>
 
-        <div class="product-card">
-            <div class="product-info">
-                <h3>Rotwein - Château Margaux 2015</h3>
-                <p>Ein vollmundiger und samtiger Bordeaux-Rotwein mit Noten von schwarzen Früchten und Vanille.</p>
+    <div class="wrapper">
+        <div class="content">
+            
+
+            <!-- Beispiel Produktkarten -->
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>Whisky - Glenfiddich 18 Jahre</h3>
+                    <p>Ein seltener und feiner Single Malt Scotch Whisky, gereift für 18 Jahre in Eichenfässern.</p>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="number" class="form-control quantity-input" value="1" min="1" max="30" step="1">
+                    <button class="btn cart-button">In den Warenkorb</button>
+                </div>
             </div>
-            <div style="display: flex; align-items: center;">
-    <input type="number" class="form-control quantity-input" value="1" min="1" max="30" step="1">
-    <button class="btn cart-button">In den Warenkorb</button>
-</div>
 
+            <div class="product-card">
+                <div class="product-info">
+                    <h3>Rotwein - Château Margaux 2015</h3>
+                    <p>Ein vollmundiger und samtiger Bordeaux-Rotwein mit Noten von schwarzen Früchten und Vanille.</p>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <input type="number" class="form-control quantity-input" value="1" min="1" max="30" step="1">
+                    <button class="btn cart-button">In den Warenkorb</button>
+                </div>
+            </div>
+
+            <!-- Weitere Produkte hier hinzufügen -->
         </div>
-        
-        <!-- Weitere Produkte hier hinzufügen -->
     </div>
 
     <!-- Bootstrap JS, Popper.js, and jQuery -->
