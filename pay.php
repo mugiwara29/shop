@@ -132,15 +132,15 @@
 
         .confirmation-message {
         text-align: center;
-        padding: 20px; /* Reduziere das Padding für weniger Innenabstand */
+        padding: 20px; 
         background-color: #fff;
         border-radius: 15px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
-        width: 70%; /* Reduziere die Breite, z. B. auf 70% */
-        max-width: 800px; /* Setze eine maximale Breite */
+        margin-top: 50px;
+        width: 70%; 
+        max-width: 800px; 
         margin-left: auto;
-        margin-right: auto; /* Zentriert den Container */
+        margin-right: auto;
 }
 
 
