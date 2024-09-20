@@ -12,11 +12,59 @@
             background: linear-gradient(45deg, #1e3c72, #2a5298);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: flex-start;
-            padding-top: 40px;
+            padding-top: 0px;
         }
 
+        /* Top-Bar Styling (gleiche wie in Main_Customer.php) */
+        .top-bar {
+            background-image: url('https://source.unsplash.com/1600x900/?whiskey,bar');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .top-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .top-bar h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .top-bar a {
+            background-color: #ff9800;
+            border-color: #ff9800;
+            color: white;
+            border-radius: 30px;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .top-bar a:hover {
+            background-color: #e68900;
+            transform: scale(1.05);
+        }
+
+        /* Cart Styling */
         .cart-container {
             background-color: #fff;
             border-radius: 15px;
@@ -24,8 +72,9 @@
             padding: 30px;
             width: 90%;
             max-width: 800px;
+            margin: auto; /* Mitte des Bildschirms */
         }
-       
+
         .cart-header {
             font-size: 2rem;
             font-weight: bold;
@@ -77,68 +126,38 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 20px;
-            padding-top: 10px;
-            border-top: 1px solid #ddd;
-        }
-
-        .total-price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .checkout-button {
-            background-color: #1e3c72;
-            color: #fff;
-            border-radius: 30px;
-            padding: 10px 20px;
-            font-size: 1rem;
-        }
-
-        .checkout-button:hover {
-            background-color: #2a5298;
         }
     </style>
 </head>
 
-<header>
-<h1>DAS IST DER L-STORE</h1>
-    </header>
-
 <body>
-    <!-- Warenkorb Container -->
+    <!-- Top-Bar für Warenkorb -->
+    <div class="top-bar">
+        <h1>Liquor Shop - Ihr Warenkorb</h1>
+        <a href="Main_Customer.php" class="btn">
+            <i class="fas fa-store"></i> Zurück zum Shop
+        </a>
+    </div>
+
+    <!-- Cart-Container -->
     <div class="cart-container">
-        <h2 class="cart-header">Ihr Warenkorb</h2>
-
-        <!-- Beispiel Warenkorbartikel -->
-        <div class="cart-item" data-price="89.99">
+        <div class="cart-header">Warenkorb</div>
+        <!-- Hier folgen die Warenkorb-Elemente -->
+        <div class="cart-item">
             <div>
-                <h4>Whisky - Glenfiddich 18 Jahre</h4>
-                <p>Preis: 89,99 €</p>
+                <h4>Produktname</h4>
+                <p>Beschreibung des Produkts</p>
             </div>
             <div style="display: flex; align-items: center;">
-                <!-- Mengenfeld -->
-                <input type="number" class="form-control quantity-input" value="1" min="1" max="30" step="1" onchange="updateTotal()">
+                <input type="number" class="form-control quantity-input" value="1" min="1" max="10" step="1">
                 <button class="btn remove-button">Entfernen</button>
             </div>
         </div>
 
-        <div class="cart-item" data-price="249.99">
-            <div>
-                <h4>Rotwein - Château Margaux 2015</h4>
-                <p>Preis: 249,99 €</p>
-            </div>
-            <div style="display: flex; align-items: center;">
-                <!-- Mengenfeld -->
-                <input type="number" class="form-control quantity-input" value="1" min="1" max="30" step="1" onchange="updateTotal()">
-                <button class="btn remove-button">Entfernen</button>
-            </div>
-        </div>
-
-        <!-- Warenkorb Fußbereich -->
+        <!-- Cart Footer mit Gesamtsumme -->
         <div class="cart-footer">
-            <span class="total-price">Gesamt: <span id="total">339,98</span> €</span>
-            <button class="btn checkout-button">Zur Kasse</button>
+            <h4>Gesamtbetrag: €99.99</h4>
+            <button class="btn btn-primary">Zur Kasse</button>
         </div>
     </div>
 
@@ -146,19 +165,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- JavaScript zur dynamischen Aktualisierung des Gesamtpreises -->
-    <script>
-        function updateTotal() {
-            let total = 0;
-            document.querySelectorAll('.cart-item').forEach(function(item) {
-                const price = parseFloat(item.getAttribute('data-price'));
-                const quantity = item.querySelector('.quantity-input').value;
-                total += price * quantity;
-            });
-            document.getElementById('total').innerText = total.toFixed(2);
-        }
-    </script>
 </body>
 
 </html>
